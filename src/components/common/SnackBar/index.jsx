@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {Snackbar} from "@mui/material";
 import Alert from "@mui/material/Alert";
@@ -19,7 +19,7 @@ class RSnackBar extends Component{
         open: false,
         className: '', 
         message: '', 
-        anchorOrigin: {vertical: 'bottum', horizontal: 'center'}, 
+        anchorOrigin: {vertical: 'bottom', horizontal: 'center'},
         severity: 'success', 
         autoHideDuration: 6000,
         variant: 'filled'

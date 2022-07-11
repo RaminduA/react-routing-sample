@@ -1,5 +1,5 @@
 import { withStyles } from '@mui/styles';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import RButton from '../../components/common/Button';
 import not_found from '../../assets/img/not_found.jpg';
 import { Link } from 'react-router-dom';
@@ -51,10 +51,9 @@ class NotFound extends Component {
                 <div className={classes.img_container}>
                     <img className={classes.img} src={not_found} alt="" />
                 </div>
-                <Link className={classes.Link} to="/home">
+                <Link className={classes.Link} to="/">
                     <RButton
                         color="success"
-                        variant="contained"
                         size="large"
                         label="Back to home page"
                     />

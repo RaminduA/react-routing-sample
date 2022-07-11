@@ -1,4 +1,4 @@
-import { Component, Fragment } from "react";
+import React, { Component, Fragment } from "react";
 import Greeting from "../../components/Home/Greeting";
 import Countable from "../../components/Home/Countable";
 import Divider from '@mui/material/Divider';
