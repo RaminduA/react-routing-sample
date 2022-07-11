@@ -4,7 +4,7 @@ export const styleSheet = {
         flexWrap: 'wrap',
         height: 'auto',
         flexDirection: 'column',
-        alignItems: 'center',
+        alignItems: 'center'
         //backgroundColor: 'gray'
     }
 }

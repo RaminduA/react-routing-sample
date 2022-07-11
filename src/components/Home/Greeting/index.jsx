@@ -1,7 +1,7 @@
 import { Component } from "react";
 import Typography from '@mui/material/Typography';
-import ijse_logo from "../../../assets/img/ijse_logo.png"
-import {styleSheet} from "./style ";
+import ijse_logo from "../../../assets/img/ijse_logo.png";
+import {styleSheet} from "./style";
 import { withStyles } from "@mui/styles";
 
 class Greeting extends Component {
