@@ -13,6 +13,12 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import RButton from "../../components/common/Button";
 import TextField from "@mui/material/TextField";
+import Autocomplete from '@mui/material/Autocomplete';
+
+const genders = [
+    { label: 'Male'},
+    { label: 'Female'}
+    ];
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -54,6 +60,12 @@ class Customer extends Component{
                 gender: '',
                 nic: '',
                 email: ''
+            },
+            form_fields: {
+                name_field: TextField,
+                gender_field: Autocomplete,
+                nic_field: TextField,
+                email_field: TextField
             }
         }
     }
@@ -97,8 +109,10 @@ class Customer extends Component{
                                     label="Name"
                                     onChange={(e)=>{
                                         let form_data = this.state.form_data;
+                                        let form_fields = this.state.form_fields;
                                         form_data.name = e.target.value;
-                                        this.setState({form_data});
+                                        form_fields.name_field = e.target;
+                                        this.setState({form_data,form_fields});
                                     }}
                                 />
                                 <TextField className={classes.TextField}
@@ -107,31 +121,50 @@ class Customer extends Component{
                                     label="NIC"
                                     onChange={(e)=>{
                                         let form_data = this.state.form_data;
+                                        let form_fields = this.state.form_fields;
                                         form_data.nic = e.target.value;
-                                        this.setState({form_data});
+                                        form_fields.nic_field = e.target;
+                                        this.setState({form_data,form_fields});
                                     }}
                                 />
                             </div>
                             <div className={classes.form_right}>
-                                <TextField className={classes.TextField}
-                                    required
-                                    id="outlined-required-input"
-                                    label="Gender"
+                                <Autocomplete className={classes.TextField}
+                                    disablePortal
+                                    id="combo-box-demo"
+                                    options={genders}
+                                    renderInput={(params) => <TextField
+                                                                                            {...params}
+                                                                                            label="Gender"
+                                                                                            required
+                                                                                            id="outlined-required-input"
+                                                                                            /*onChange={(e)=>{
+                                                                                                let form_data = this.state.form_data;
+                                                                                                let form_fields = this.state.form_fields;
+                                                                                                form_data.gender = e.target.value;
+                                                                                                form_fields.gender_field = e.target;
+                                                                                                this.setState({form_data,form_fields});
+                                                                                            }}*//>
+                                    }
                                     onChange={(e)=>{
                                         let form_data = this.state.form_data;
+                                        let form_fields = this.state.form_fields;
                                         form_data.gender = e.target.value;
-                                        this.setState({form_data});
+                                        form_fields.gender_field = e.target;
+                                        this.setState({form_data,form_fields});
                                     }}
                                 />
                                 <TextField className={classes.TextField}
-                                    required
-                                    id="outlined-required-input"
-                                    label="Email"
-                                    onChange={(e)=>{
-                                        let form_data = this.state.form_data;
-                                        form_data.email = e.target.value;
-                                        this.setState({form_data});
-                                    }}
+                                           required
+                                           id="outlined-required-input"
+                                           label="Email"
+                                           onChange={(e)=>{
+                                               let form_data = this.state.form_data;
+                                               let form_fields = this.state.form_fields;
+                                               form_data.email = e.target.value;
+                                               form_fields.email_field = e.target;
+                                               this.setState({form_data,form_fields});
+                                           }}
                                 />
                             </div>
                         </div>
@@ -141,7 +174,7 @@ class Customer extends Component{
                                 size="large"
                                 label="Clear"
                                 onClick={() => {
-                                    this.resetCount()
+                                    //this.resetCount()
 
                                 }}
                                 style={{marginLeft: '15px'}}
@@ -151,8 +184,11 @@ class Customer extends Component{
                                 size="large"
                                 label="Save"
                                 onClick={() => {
-                                    this.resetCount()
-
+                                    let form_data = this.state.form_data;
+                                    console.log(form_data.name);
+                                    console.log(form_data.gender);
+                                    console.log(form_data.nic);
+                                    console.log(form_data.email);
                                 }}
                                 style={{marginLeft: '15px'}}
                             />

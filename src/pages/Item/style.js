@@ -105,6 +105,7 @@ export const styleSheet = {
     },
     TextField: {
         backgroundColor: 'white',
+        width: '80%',
         margin: '10px'
     },
     button_container: {

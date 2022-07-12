@@ -54,6 +54,12 @@ class Item extends Component{
                 description: '',
                 price: '',
                 quantity: ''
+            },
+            form_fields: {
+                code_field: TextField,
+                description_field: TextField,
+                price_field: TextField,
+                quantity_field: TextField
             }
         }
     }
@@ -97,8 +103,10 @@ class Item extends Component{
                                            label="Code"
                                            onChange={(e)=>{
                                                let form_data = this.state.form_data;
-                                               form_data.name = e.target.value;
-                                               this.setState({form_data});
+                                               let form_fields = this.state.form_fields;
+                                               form_data.code = e.target.value;
+                                               form_fields.code_field = e.target;
+                                               this.setState({form_data,form_fields});
                                            }}
                                 />
                                 <TextField className={classes.TextField}
@@ -107,8 +115,10 @@ class Item extends Component{
                                            label="Price"
                                            onChange={(e)=>{
                                                let form_data = this.state.form_data;
-                                               form_data.nic = e.target.value;
-                                               this.setState({form_data});
+                                               let form_fields = this.state.form_fields;
+                                               form_data.price = e.target.value;
+                                               form_fields.price_field = e.target;
+                                               this.setState({form_data,form_fields});
                                            }}
                                 />
                             </div>
@@ -119,8 +129,10 @@ class Item extends Component{
                                            label="Description"
                                            onChange={(e)=>{
                                                let form_data = this.state.form_data;
-                                               form_data.gender = e.target.value;
-                                               this.setState({form_data});
+                                               let form_fields = this.state.form_fields;
+                                               form_data.description = e.target.value;
+                                               form_fields.description_field = e.target;
+                                               this.setState({form_data,form_fields});
                                            }}
                                 />
                                 <TextField className={classes.TextField}
@@ -129,8 +141,10 @@ class Item extends Component{
                                            label="Quantity"
                                            onChange={(e)=>{
                                                let form_data = this.state.form_data;
-                                               form_data.email = e.target.value;
-                                               this.setState({form_data});
+                                               let form_fields = this.state.form_fields;
+                                               form_data.quantity = e.target.value;
+                                               form_fields.quantity_field = e.target;
+                                               this.setState({form_data,form_fields});
                                            }}
                                 />
                             </div>
@@ -141,8 +155,11 @@ class Item extends Component{
                                 size="large"
                                 label="Clear"
                                 onClick={() => {
-                                    this.resetCount()
-
+                                    let form_fields = this.state.form_fields;
+                                    form_fields.code_field.value = '';
+                                    form_fields.description_field.value = '';
+                                    form_fields.price_field.value = '';
+                                    form_fields.quantity_field.value = '';
                                 }}
                                 style={{marginLeft: '15px'}}
                             />
@@ -151,8 +168,11 @@ class Item extends Component{
                                 size="large"
                                 label="Save"
                                 onClick={() => {
-                                    this.resetCount()
-
+                                    let form_data = this.state.form_data;
+                                    console.log(form_data.code);
+                                    console.log(form_data.description);
+                                    console.log(form_data.price);
+                                    console.log(form_data.quantity);
                                 }}
                                 style={{marginLeft: '15px'}}
                             />
