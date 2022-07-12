@@ -41,12 +41,12 @@ class Dashboard extends Component{
                     <Typography  color="white" variant="h1" component="h1">
                         <p className={classes.heading_two}>Feed <em className={classes.heading_two_em}>your family</em> the best</p>
                     </Typography>
-                </div>
-                <div className={classes.video_container}>
-                    <video className={classes.bg_video} autoPlay muted loop>
-                        <source src={video} type="video/mp4"/>
-                    </video>
-                    <div className={classes.video_overlay}>
+                    <div className={classes.video_container}>
+                        <video className={classes.bg_video} autoPlay muted loop>
+                            <source src={video} type="video/mp4"/>
+                        </video>
+                        <div className={classes.video_overlay}>
+                        </div>
                     </div>
                 </div>
             </div>

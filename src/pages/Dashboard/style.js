@@ -17,7 +17,7 @@ export const styleSheet = {
         width: '100%',
         margin: '0',
         backgroundColor: 'rgba(250,250,250,0.1)',
-        zIndex: '3'
+        zIndex: '1'
     },
     nav_logo: {
         position: 'absolute',
@@ -41,8 +41,7 @@ export const styleSheet = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: '3'
+        justifyContent: 'center'
     },
     heading_one: {
         textTransform: 'uppercase',
@@ -67,7 +66,8 @@ export const styleSheet = {
         top: '0',
         left: '0',
         width: '100vw',
-        margin: '0'
+        margin: '0',
+        zIndex: '-1'
     },
     bg_video: {
         position: 'relative',
@@ -84,7 +84,6 @@ export const styleSheet = {
         width: '100%',
         objectFit: 'fill',
         margin: '0',
-        backgroundColor: 'rgba(35,45,57,0.7)',
-        zIndex: '2'
+        backgroundColor: 'rgba(35,45,57,0.7)'
     }
 }
