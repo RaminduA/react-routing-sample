@@ -54,11 +54,7 @@ class Customer extends Component{
                 gender: '',
                 nic: '',
                 email: ''
-            },
-            //for snackbar props
-            open: false,
-            message: '',
-            severity: ''
+            }
         }
     }
 
