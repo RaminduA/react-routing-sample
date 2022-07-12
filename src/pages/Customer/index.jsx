@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {styleSheet} from "./style";
 import {withStyles} from "@mui/styles";
-import {Link} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -14,11 +13,9 @@ import Paper from '@mui/material/Paper';
 import RButton from "../../components/common/Button";
 import TextField from "@mui/material/TextField";
 import Autocomplete from '@mui/material/Autocomplete';
+import RNavBar from "../../components/common/NavBar";
 
-const genders = [
-    { label: 'Male'},
-    { label: 'Female'}
-    ];
+const genders = [{ label: 'Male'}, { label: 'Female'}];
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -74,26 +71,7 @@ class Customer extends Component{
         const {classes} = this.props;
         return(
             <div className={classes.container}>
-                <div className={classes.nav_bar}>
-                    <Typography  color="white" variant="h1" component="h1">
-                        <p className={classes.nav_logo}>Scorpio <em className={classes.nav_logo_em}> Foods</em></p>
-                    </Typography>
-                    <Link href={"/dashboard"} underline="none" style={{margin: '0 4% 0 0'}}>
-                        <Typography color="white" variant="body1" component="h2">
-                            Home
-                        </Typography>
-                    </Link>
-                    <Link href={"/customer"} underline="none" style={{margin: '0 4% 0 0'}}>
-                        <Typography color="white" variant="body1" component="h2">
-                            Customers
-                        </Typography>
-                    </Link>
-                    <Link href={"/item"} underline="none" style={{margin: '0 10% 0 0'}}>
-                        <Typography color="white" variant="body1" component="h2">
-                            Items
-                        </Typography>
-                    </Link>
-                </div>
+                <RNavBar/>
                 <div className={classes.page_content}>
                     <div className={classes.left_side}>
                         <div className={classes.title_container}>
@@ -133,23 +111,11 @@ class Customer extends Component{
                                     disablePortal
                                     id="combo-box-demo"
                                     options={genders}
-                                    renderInput={(params) => <TextField
-                                                                                            {...params}
-                                                                                            label="Gender"
-                                                                                            required
-                                                                                            id="outlined-required-input"
-                                                                                            /*onChange={(e)=>{
-                                                                                                let form_data = this.state.form_data;
-                                                                                                let form_fields = this.state.form_fields;
-                                                                                                form_data.gender = e.target.value;
-                                                                                                form_fields.gender_field = e.target;
-                                                                                                this.setState({form_data,form_fields});
-                                                                                            }}*//>
-                                    }
-                                    onChange={(e)=>{
+                                    renderInput={(params) => <TextField {...params} label="Gender" required id="outlined-required-input" />}
+                                    onChange={(e,value)=>{
                                         let form_data = this.state.form_data;
                                         let form_fields = this.state.form_fields;
-                                        form_data.gender = e.target.value;
+                                        form_data.gender = value.label;
                                         form_fields.gender_field = e.target;
                                         this.setState({form_data,form_fields});
                                     }}
@@ -174,8 +140,10 @@ class Customer extends Component{
                                 size="large"
                                 label="Clear"
                                 onClick={() => {
-                                    //this.resetCount()
-
+                                    let form_fields = this.state.form_fields;
+                                    form_fields.name_field.value = '';
+                                    form_fields.nic_field.value = '';
+                                    form_fields.email_field.value = '';
                                 }}
                                 style={{marginLeft: '15px'}}
                             />
@@ -189,6 +157,8 @@ class Customer extends Component{
                                     console.log(form_data.gender);
                                     console.log(form_data.nic);
                                     console.log(form_data.email);
+                                    rows.push(createData(form_data.name, form_data.gender, form_data.nic, form_data.email));
+                                    console.log(rows);
                                 }}
                                 style={{marginLeft: '15px'}}
                             />
@@ -197,7 +167,7 @@ class Customer extends Component{
                     <div className={classes.right_side}>
                         <div className={classes.table_container}>
                             <TableContainer component={Paper}>
-                                <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                                <Table sx={{ minWidth: 700 }} aria-label="customized table" id={'table1'}>
                                     <TableHead>
                                         <TableRow>
                                             <StyledTableCell>Name</StyledTableCell>
@@ -206,7 +176,7 @@ class Customer extends Component{
                                             <StyledTableCell>Email</StyledTableCell>
                                         </TableRow>
                                     </TableHead>
-                                    <TableBody>
+                                    <TableBody id={'customerTable'}>
                                         {rows.map((row) => (
                                             <StyledTableRow key={row.name}>
                                                 <StyledTableCell component="th" scope="row">

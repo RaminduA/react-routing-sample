@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {styleSheet} from "./style";
 import {withStyles} from "@mui/styles";
-import {Link} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -13,6 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import RButton from "../../components/common/Button";
 import TextField from "@mui/material/TextField";
+import RNavBar from "../../components/common/NavBar";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -68,26 +68,7 @@ class Item extends Component{
         const {classes} = this.props;
         return(
             <div className={classes.container}>
-                <div className={classes.nav_bar}>
-                    <Typography  color="white" variant="h1" component="h1">
-                        <p className={classes.nav_logo}>Scorpio <em className={classes.nav_logo_em}> Foods</em></p>
-                    </Typography>
-                    <Link href={"/dashboard"} underline="none" style={{margin: '0 4% 0 0'}}>
-                        <Typography color="white" variant="body1" component="h2">
-                            Home
-                        </Typography>
-                    </Link>
-                    <Link href={"/customer"} underline="none" style={{margin: '0 4% 0 0'}}>
-                        <Typography color="white" variant="body1" component="h2">
-                            Customers
-                        </Typography>
-                    </Link>
-                    <Link href={"/item"} underline="none" style={{margin: '0 10% 0 0'}}>
-                        <Typography color="white" variant="body1" component="h2">
-                            Items
-                        </Typography>
-                    </Link>
-                </div>
+                <RNavBar/>
                 <div className={classes.page_content}>
                     <div className={classes.left_side}>
                         <div className={classes.title_container}>

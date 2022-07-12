@@ -7,33 +7,6 @@ export const styleSheet = {
         width: '100vw',
         margin: '0'
     },
-    nav_bar: {
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'end',
-        height: '9%',
-        width: '100%',
-        margin: '0',
-        backgroundColor: 'rgba(250,250,250,0.1)',
-        zIndex: '1'
-    },
-    nav_logo: {
-        position: 'absolute',
-        textTransform: 'uppercase',
-        fontWeight: '800',
-        fontSize: '30px',
-        top: '25%',
-        left: '8%',
-        margin: '0'
-    },
-    nav_logo_em: {
-        textTransform: 'uppercase',
-        color: '#ed563b',
-        fontStyle: 'normal',
-        margin: '0'
-    },
     page_content: {
         height: '91%',
         width: '100%',

@@ -3,7 +3,8 @@ import {styleSheet} from "./style";
 import {withStyles} from "@mui/styles";
 import {Link} from "@mui/material";
 import Typography from "@mui/material/Typography";
-import video from '../../assets/img/video.mp4'
+import video from '../../assets/img/video.mp4';
+import RNavBar from "../../components/common/NavBar";
 
 class Dashboard extends Component{
     constructor(props) {
@@ -14,7 +15,7 @@ class Dashboard extends Component{
         const {classes} = this.props;
         return(
             <div className={classes.container}>
-                <div className={classes.nav_bar}>
+                {/*<div className={classes.nav_bar}>
                     <Typography  color="white" variant="h1" component="h1">
                         <p className={classes.nav_logo}>Scorpio <em className={classes.nav_logo_em}> Foods</em></p>
                     </Typography>
@@ -33,7 +34,8 @@ class Dashboard extends Component{
                             Items
                         </Typography>
                     </Link>
-                </div>
+                </div>*/}
+                <RNavBar/>
                 <div className={classes.page_content}>
                     <Typography color="white" variant="h6" component="h6">
                         <p className={classes.heading_one}>It's all about your need</p>

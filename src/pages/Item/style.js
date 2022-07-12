@@ -2,36 +2,10 @@ export const styleSheet = {
     container: {
         display: 'flex',
         flexDirection: 'column',
+        backgroundColor: '#0e0d0d',
         flexWrap: 'wrap',
         height: '100vh',
         width: '100vw',
-        margin: '0'
-    },
-    nav_bar: {
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'end',
-        height: '9%',
-        width: '100%',
-        margin: '0',
-        backgroundColor: '#24262A',
-        zIndex: '3'
-    },
-    nav_logo: {
-        position: 'absolute',
-        textTransform: 'uppercase',
-        fontWeight: '800',
-        fontSize: '30px',
-        top: '25%',
-        left: '8%',
-        margin: '0'
-    },
-    nav_logo_em: {
-        textTransform: 'uppercase',
-        color: '#ed563b',
-        fontStyle: 'normal',
         margin: '0'
     },
     page_content: {
